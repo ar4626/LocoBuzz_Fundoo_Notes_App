@@ -92,7 +92,16 @@
     width : 75vw;
     height : 50px;
     .language { 
-        margin-left: 20px;
+        margin-left: px;
+        overflow: hidden;
+        border-radius: 10px;
+        height: 32px;
+        mat-form-field{
+            margin-top: -10px;
+            background-color: transparent;
+            width: 250px;
+            
+        }
     }
     
     .document { 

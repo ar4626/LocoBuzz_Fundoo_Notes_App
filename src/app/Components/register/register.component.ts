@@ -5,8 +5,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 
+
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [
     MatInputModule,
@@ -15,10 +16,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatCheckboxModule,
     MatSelectModule
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss'
 })
-export class LoginComponent {
+export class RegisterComponent {
   showPassword : boolean = false;
 
   toggleVisibility(): void{

@@ -7,6 +7,15 @@
     background-color: #f0f4f9;
 }
 
+.password-section{
+    display: flex; 
+    justify-content: space-between;
+
+    mat-form-field{
+        width: 48%;
+    }
+}
+
 .container{
     display: flex;
     flex-direction: row;
@@ -72,7 +81,7 @@
         }
 
         .submit-btn{
-            margin-top: 10vh;
+            margin-top: 3vh;
             display: flex;
             justify-content: end;
             align-items: flex-end;

@@ -21,8 +21,17 @@ import {MatSelectModule} from '@angular/material/select';
 })
 export class RegisterComponent {
   showPassword : boolean = false;
+  details : string = 'details';
 
   toggleVisibility(): void{
     this.showPassword = !this.showPassword;
+  }
+
+  onMouseOver(label : string) : void{
+    this.details = label;
+  }
+
+  onMouseOut() : void{
+    this.details = "details";
   }
 }

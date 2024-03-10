@@ -6,7 +6,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-reset-password',
   standalone: true,
   imports: [
     MatInputModule,
@@ -15,15 +15,13 @@ import {MatSelectModule} from '@angular/material/select';
     MatCheckboxModule,
     MatSelectModule
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './reset-password.component.html',
+  styleUrl: './reset-password.component.scss'
 })
-export class LoginComponent {
+export class ResetPasswordComponent {
   showPassword : boolean = false;
 
   toggleVisibility(): void{
     this.showPassword = !this.showPassword;
   }
-
-
 }

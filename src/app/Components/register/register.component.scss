@@ -1,0 +1,138 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f9;
+}
+
+.password-section{
+    display: flex; 
+    justify-content: space-between;
+
+    mat-form-field{
+        width: 48%;
+    }
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height : fit-content;
+    width : 75vw;
+    padding: 40px;
+    background-color: white;
+    border-radius: 30px;
+
+    .welcome { 
+        width: 50%;
+
+        svg { 
+    
+            path { 
+    
+            }
+        }
+    
+        h1 { 
+            font-size: 40px ;
+            margin-top: 24px;
+        }
+    
+        p { 
+    
+        }
+    }
+
+    .form-input { 
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        padding: 20px;
+        box-sizing: border-box;
+        // position: relative;
+
+        mat-form-field { 
+    
+            mat-label { 
+    
+            }
+    
+            input { 
+    
+            }
+    
+            mat-hint { 
+    
+            }
+        }
+
+        .forget-btn{
+            display: flex;
+            justify-content: space-between;
+            margin-top: -25px;
+            border-radius: 10px;
+            height: fit-content;
+            font-size: 14px;
+        }
+
+        .submit-btn{
+            margin-top: 3vh;
+            display: flex;
+            justify-content: end;
+            align-items: flex-end;
+            
+            button{
+                border-radius: 50px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content:space-between; 
+    align-items: center;
+    width : 75vw;
+    height : 50px;
+    .language { 
+        margin-left: px;
+        overflow: hidden;
+        border-radius: 10px;
+        height: 32px;
+        mat-form-field{
+            margin-top: -10px;
+            background-color: transparent;
+            width: 250px;
+            
+        }
+    }
+    
+    .document { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        margin: 10px 22px;
+        width: 150px;
+        font-size: 12px;
+        padding: 8px 12px;
+        color: #1f1f1f;
+
+        .help { 
+
+        }
+
+        .privacy { 
+
+        }
+
+        .terms { 
+
+        }
+    }
+}

@@ -5,37 +5,67 @@
             <h1>Create a Google Account</h1>
             <p>Enter your {{details}}</p>
         </div>
-        <div class="form-input">
+        <form class="form-input" [formGroup]="registerForm">
             <div class="password-section">
                 <mat-form-field appearance="outline" (mouseover)="onMouseOver('first name')" (mouseout)="onMouseOut()">
                     <mat-label>First name</mat-label>
-                    <input matInput placeholder="">
+                    <input matInput placeholder="" formControlName="fname">
+                    <mat-error *ngIf="registerForm.get('fname')?.hasError('required')">
+                        First name is required.
+                    </mat-error>
+                    <mat-error *ngIf="registerForm.get('fname')?.hasError('pattern')">
+                        Start with Upper case
+                    </mat-error>
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
                 <mat-form-field appearance="outline" (mouseover)="onMouseOver('last name')" (mouseout)="onMouseOut()">
                     <mat-label>Last name</mat-label>
-                    <input matInput placeholder="">
+                    <input matInput placeholder="" formControlName="lname">
                     <!-- <mat-hint>Hint</mat-hint> -->
+                    <mat-error *ngIf="registerForm.get('lname')?.hasError('required')">
+                        Lasr name is required.
+                    </mat-error>
+                    <mat-error *ngIf="registerForm.get('lname')?.hasError('pattern')">
+                        Start with Upper case
+                    </mat-error>
                 </mat-form-field>
             </div>
             <mat-form-field appearance="outline" (mouseover)="onMouseOver('email')" (mouseout)="onMouseOut()">
                 <mat-label>Email or Phone</mat-label>
-                <input matInput placeholder="" type="email">
+                <input matInput placeholder="" type="email" formControlName="email">
                 <!-- <mat-hint>Hint</mat-hint> -->
+                <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+                    Email is required.
+                </mat-error>
+                <mat-error *ngIf="registerForm.get('email')?.hasError('email')">
+                    Email is not valid.
+                </mat-error>
             </mat-form-field>
             <div class="password-section">
                 <mat-form-field appearance="outline" (mouseover)="onMouseOver('password')" (mouseout)="onMouseOut()">
                     <mat-label>Password</mat-label>
-                    <input matInput placeholder="" [type]="showPassword ? 'text' : 'password'">
+                    <input matInput formControlName="password" placeholder="" [type]="showPassword ? 'text' : 'password'">
                     <!-- <mat-hint>Hint</mat-hint> -->
+                    <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+                        Password is required.
+                    </mat-error>
+                    <mat-error *ngIf="registerForm.get('password')?.hasError('pattern')">
+                        Create strong password
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Confirm password </mat-label>
-                    <input matInput placeholder="" [type]="showPassword ? 'text' : 'password'">
+                    <input matInput formControlName="confirmPassword" placeholder="" [type]="showPassword ? 'text' : 'password'">
                     <!-- <mat-hint>Hint</mat-hint> -->
+                    <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('required')">
+                        Confirm password is required.
+                    </mat-error>
+                    <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('passwordMismatch') ">
+                        Confirm Password is different from password
+                    </mat-error>
                 </mat-form-field>
             </div>
-            
+             
             <div class="forget-btn">
                 <mat-checkbox color="primary" (change)="toggleVisibility()">Show password</mat-checkbox> 
             </div>
@@ -45,7 +75,7 @@
                 <button mat-raised-button color="primary">Create</button>
             </div>
 
-        </div>
+        </form>
     </div>
     <div class="footer">
         <div class="language">

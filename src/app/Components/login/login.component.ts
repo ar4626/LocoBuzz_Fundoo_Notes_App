@@ -4,7 +4,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -29,9 +29,12 @@ export class LoginComponent implements OnInit {
     this.showPassword = !this.showPassword;
 
   }
+  emaiaa = new FormControl("", Validators.email)
 
   loginForm !: FormGroup;
-  constructor(private formBuilder :FormBuilder){}
+  constructor(private formBuilder :FormBuilder){
+    
+  }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.

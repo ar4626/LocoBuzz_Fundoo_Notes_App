@@ -8,7 +8,7 @@
         <form [formGroup]="loginForm" class="form-input" >
             <mat-form-field appearance="outline">
                 <mat-label>Email or Phone</mat-label>
-                <input matInput placeholder="" formControlName="email">
+                <input matInput placeholder="" formControlName="email" >
                 <!-- <mat-hint>Hint</mat-hint> -->
                 <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
                     Email is required.
@@ -24,7 +24,7 @@
                 <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
                     Password is required.
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> 
             
             <div class="forget-btn">
                 <mat-checkbox color="primary" (change)="toggleVisibility()">Show password</mat-checkbox> 

@@ -5,16 +5,25 @@
             <h1>Sign in</h1>
             <p>Use your Google Account</p>
         </div>
-        <div class="form-input">
+        <form [formGroup]="loginForm" class="form-input" >
             <mat-form-field appearance="outline">
                 <mat-label>Email or Phone</mat-label>
-                <input matInput placeholder="">
+                <input matInput placeholder="" formControlName="email">
                 <!-- <mat-hint>Hint</mat-hint> -->
+                <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                    Email is required.
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+                    Email is not valid.
+                </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Enter your password</mat-label>
-                <input matInput placeholder="" [type]="showPassword ? 'text' : 'password'">
+                <input matInput placeholder="" [type]="showPassword ? 'text' : 'password'" formControlName="password">
                 <!-- <mat-hint>Hint</mat-hint> -->
+                <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                    Password is required.
+                </mat-error>
             </mat-form-field>
             
             <div class="forget-btn">
@@ -27,7 +36,7 @@
                 <button mat-raised-button color="primary">Sign in</button>
             </div>
 
-        </div>
+        </form>
     </div>
     <div class="footer">
         <div class="language">

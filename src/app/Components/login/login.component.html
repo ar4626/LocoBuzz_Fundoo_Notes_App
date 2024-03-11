@@ -22,7 +22,10 @@
                 <input matInput placeholder="" [type]="showPassword ? 'text' : 'password'" formControlName="password">
                 <!-- <mat-hint>Hint</mat-hint> -->
                 <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-                    Password is required.
+                    You must enter a password.
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('password')?.hasError('pattern')">
+                    Password must be valid.
                 </mat-error>
             </mat-form-field> 
             

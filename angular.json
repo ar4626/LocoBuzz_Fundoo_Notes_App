@@ -31,7 +31,6 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/assets/fonts/GoogleSans/GoogleSans.css",
               "src/styles.scss"
             ],
             "scripts": [],

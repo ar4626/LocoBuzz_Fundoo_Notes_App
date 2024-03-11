@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatCheckboxModule,
+    MatCheckboxModule, 
     MatSelectModule,
     ReactiveFormsModule,
     CommonModule
@@ -25,14 +25,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './forget-password.component.scss'
 })
 export class ForgetPasswordComponent implements OnInit {
-  loginForm !: FormGroup;
+  forgetPasswordForm !: FormGroup;
   constructor(private formBuilder: FormBuilder){};
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
-    this.loginForm = this.formBuilder.group(
+    this.forgetPasswordForm = this.formBuilder.group(
       {
         email: ['',[Validators.required, Validators.email]],
-        password: ['',[Validators.required, Validators.pattern('[a-zA-Z]+')]],
       }
     )
   }

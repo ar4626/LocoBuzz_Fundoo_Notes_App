@@ -20,6 +20,6 @@ export const routes: Routes = [
     },
     {
         path: 'forget-password', component: ForgetPasswordComponent
-    }
+    },
 
 ];

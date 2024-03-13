@@ -9,7 +9,7 @@ export class UserService {
   token : any;
   constructor(private httpService : HttpService)
   {
-    this.token = localStorage?.getItem('token');
+    // this.token = localStorage?.getItem('token');
   }
 
   register(reqData: any){

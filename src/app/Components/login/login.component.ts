@@ -6,6 +6,15 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user/user.service';
+import {
+  MatSnackBar,
+  MatSnackBarAction,
+  MatSnackBarActions,
+  MatSnackBarLabel,
+  MatSnackBarRef,
+} from '@angular/material/snack-bar';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-login',
@@ -17,24 +26,27 @@ import { CommonModule } from '@angular/common';
     MatCheckboxModule,
     MatSelectModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
+  durationInSeconds = 5;
   showPassword : boolean = false;
 
   toggleVisibility(): void{
     this.showPassword = !this.showPassword;
 
   }
-  emaiaa = new FormControl("", Validators.email)
 
   loginForm !: FormGroup;
-  constructor(private formBuilder :FormBuilder){
-    
-  }
+  constructor(
+    private formBuilder :FormBuilder,
+    private userService :UserService,
+    private _snackBar: MatSnackBar
+    ){  }
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -45,6 +57,37 @@ export class LoginComponent implements OnInit {
       }
     )
     
+  }
+
+  //API Integration 
+  loginUser(): void{
+    // if(this.loginForm.valid){
+      const requestData = {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      };
+      // Call the login method from UserService
+      this.userService.login(requestData).subscribe(
+        (response: any)=>{
+          //Handle success Response
+          console.log("Login successful", response.data);
+          localStorage.setItem('token', response.data);
+          this.openSnackBar('Login successful')
+        },
+        (error)=>{
+          console.log('Login Failed', error);
+          this.openSnackBar('Login Failed')
+        }
+      )
+    // }
+  }
+
+  openSnackBar(snackMessage: string) {
+    // console.log("Open Snack Bar")
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      data: snackMessage,
+      duration: this.durationInSeconds * 500,
+    });
   }
 
 }

@@ -6,6 +6,18 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  MatSnackBar,
+  MatSnackBarAction,
+  MatSnackBarActions,
+  MatSnackBarLabel,
+  MatSnackBarRef,
+} from '@angular/material/snack-bar';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+
+
 
 @Component({
   selector: 'app-register',
@@ -17,7 +29,8 @@ import { CommonModule } from '@angular/common';
     MatCheckboxModule,
     MatSelectModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
@@ -25,6 +38,7 @@ import { CommonModule } from '@angular/common';
 export class RegisterComponent implements OnInit {
   showPassword: boolean = false;
   details: string = 'details';
+  durationInSeconds = 5;
 
   toggleVisibility(): void {
     this.showPassword = !this.showPassword;
@@ -39,18 +53,23 @@ export class RegisterComponent implements OnInit {
   }
 
   registerForm !: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private _snackBar: MatSnackBar
+
+    ) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.registerForm = this.formBuilder.group(
       {
-        fname: ["", [Validators.required, Validators.pattern('^[A-Z][a-z]*$')]],
-        lname: ["", [Validators.required, Validators.pattern('^[A-Z][a-z]*$')]],
+        fName: ["", [Validators.required, Validators.pattern('^[A-Z][a-z]*$')]],
+        lName: ["", [Validators.required, Validators.pattern('^[A-Z][a-z]*$')]],
         email: ["", [Validators.required, Validators.email]],
-        password: ["", [Validators.required, Validators.pattern("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")]],
-        confirmPassword: ["", [Validators.required]],
+        // password: ["", [Validators.required, Validators.pattern("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")]],
+        // confirmPassword: ["", [Validators.required]],
       }
     );
   }
@@ -85,6 +104,44 @@ export class RegisterComponent implements OnInit {
     }
 
     return this.confirmPassword.hasError('passwordMismatch') ? 'Passwords do not match' : '';
+  }
+
+
+  //API Integration 
+  registerUser(): void {
+    console.log('Register button clicked');
+    if (this.registerForm.valid) {
+      const requestData = {
+        fName: this.registerForm.get('fName')?.value,
+        lName: this.registerForm.get('lName')?.value,
+        email: this.registerForm.get('email')?.value,
+        password: this.password?.value,
+        // confirmPassword: this.registerForm.get('confirmPassword')?.value,
+      };
+
+      console.log(requestData);
+      // Call the register method from UserService
+      this.userService.register(requestData).subscribe(
+        (response:any) => {
+          // Handle success response
+          console.log('Registration successful:', response.data);
+          this.openSnackBar("Registration successful");
+        },
+        (error) => {
+          // Handle error response
+          console.error('Registration failed:', error);
+          this.openSnackBar("Registration Failed");
+        }
+      );
+    }
+  }
+
+  openSnackBar(snackMessage: string) {
+    // console.log("Open Snack Bar")
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      data: snackMessage,
+      duration: this.durationInSeconds * 1000,
+    });
   }
 
 }

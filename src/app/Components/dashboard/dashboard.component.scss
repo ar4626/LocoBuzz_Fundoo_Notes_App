@@ -1,3 +1,8 @@
+.mat-toolbar {
+    background-color: white !important;
+    box-sizing: border-box;
+}
+
 .spacer {
     flex: 1 1 auto;
 }
@@ -33,7 +38,7 @@ mat-sidenav {
     display: flex;
     justify-content: space-between;
     align-items:center;
-    background-color: #e6e6e6;
+    background-color: #f1f3f4;
     margin: 0px 80px;
     box-shadow: #bababa;
     border-radius: 8px;

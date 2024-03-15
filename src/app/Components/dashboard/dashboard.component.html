@@ -1,5 +1,5 @@
 <mat-toolbar style="border-bottom: solid 1px #bfbebe;">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+    <button mat-icon-button class="" aria-label="Example icon-button with menu icon"
         (click)="drawer.toggle(); switchbg()">
         <mat-icon>menu</mat-icon>
     </button>
@@ -7,26 +7,26 @@
         style="width:40px;height:40px">
     <span class="title">Fundoo Notes</span>
     <div class="spacer">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <button mat-icon-button class="search-icon" aria-label="Example icon-button with share icon">
             <mat-icon>search</mat-icon>
         </button>
         <input class="search-input " type="text" placeholder="Search" />
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/multiply--v1.png"
+        <button mat-icon-button class="cross-icon" aria-label="Example icon-button with share icon">
+            <img  width="24" height="24" src="https://img.icons8.com/material-rounded/24/multiply--v1.png"
                 alt="multiply--v1" />
         </button>
     </div>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button class="" aria-label="Example icon-button with heart icon">
         <mat-icon>refresh</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="" aria-label="Example icon-button with share icon">
         <mat-icon>view_stream</mat-icon>
         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
             <path fill="currentColor"
                 d="M3 7v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2m16 10H5v-4h14zM5 11V7h14v4z" />
         </svg> -->
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="" aria-label="Example icon-button with share icon">
         <!-- <mat-icon>settings</mat-icon> -->
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
             <g fill="#6e6c6c" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -42,12 +42,12 @@
         </svg>
         <!-- <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/000000/settings--v1.png" alt="settings--v1"/> -->
     </button>
-    <button style="margin-left: 30px;" mat-icon-button class="example-icon favorite-icon"
+    <button style="margin-left: 30px;" mat-icon-button class=" favorite-icon"
         aria-label="Example icon-button with heart icon">
         <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4D4D4D/circled-menu.png"
             alt="circled-menu" />
     </button>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button class=" favorite-icon" aria-label="Example icon-button with heart icon">
         <div style="width: 28px; height: 28px; background-color: rgb(176, 141, 95); border-radius: 50%;"></div>
     </button>
 </mat-toolbar>
@@ -101,7 +101,7 @@
     </div>
 </div> -->
 <main>
-    <div class="menu">
+    <div class="menu"  (mouseover)="drawer.toggle();" (mouseout)="drawer.toggle();">
         <div class="note-option">
             <button mat-icon-button style="background-color: white;" class="side-icon favorite-icon" aria-label="Example icon-button with heart icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@
                     Notes
                 </p>
             </div>
-            <div class="note-option-title" [style.background-color]="showFiller ? '#feefc3' : '#ffffff'">
+            <div class="note-option-title" [style.background-color]="showFiller ? '#feefc3' : '#ffffff'" >
                 <p>
                     Reminders
                 </p>
@@ -202,7 +202,8 @@
         </mat-drawer>
 
         <div class="sidenav-content">
-            asdf
+            <!-- fghxcncncnghffghxcnghxcnghxcngh -->
+            <app-register></app-register>
         </div>
 
     </mat-drawer-container>

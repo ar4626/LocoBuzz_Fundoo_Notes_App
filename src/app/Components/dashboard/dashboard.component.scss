@@ -17,7 +17,7 @@
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: wheat;
+    background-color: #f0f4f9;
 }
 
 .sidenav {
@@ -31,6 +31,8 @@ mat-sidenav {
 
 .spacer {
     display: flex;
+    justify-content: space-between;
+    align-items:center;
     background-color: #e6e6e6;
     margin: 0px 80px;
     box-shadow: #bababa;
@@ -38,15 +40,32 @@ mat-sidenav {
     // border: solid 1px black;
 }
 
+.spacer:focus{
+    border: 1px solid grey;
+}
+
 .search-input{
     height: 40px;
-    width: 80%;
+    width: 90%;
     background-color: transparent;
     border: none;
+    font-size: 18px;
+    padding-right: 20px;
 }
 
 .search-input:focus{
     outline: none;
+}
+
+.cross-icon {
+    display: none; 
+}
+
+.search-input:focus + .cross-icon {
+    display: flex; /* Display the cross icon when input is focused */
+    align-items: center;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-left: 10px; /* Adjust margin for proper alignment */
 }
 
 main{

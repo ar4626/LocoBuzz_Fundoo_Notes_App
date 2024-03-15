@@ -3,6 +3,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { RegisterComponent } from '../register/register.component';
 
 
 @Component({
@@ -12,7 +13,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    RegisterComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

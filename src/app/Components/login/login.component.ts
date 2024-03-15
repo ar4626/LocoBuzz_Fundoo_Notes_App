@@ -15,6 +15,7 @@ import {
   MatSnackBarRef,
 } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+import { Router } from '@angular/router'; // Assuming Router is imported from Angular Router, not Express
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ import { SnackBarComponent } from '../snack-bar/snack-bar.component';
     MatSelectModule,
     ReactiveFormsModule,
     CommonModule,
+    
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -44,7 +46,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder :FormBuilder,
     private userService :UserService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private route: Router
     ){  }
 
   ngOnInit(): void {
@@ -73,10 +76,11 @@ export class LoginComponent implements OnInit {
           console.log("Login successful", response.data);
           localStorage.setItem('token', response.data);
           this.openSnackBar('Login successful')
-        },
+          this.route.navigateByUrl('/home')
+        }, 
         (error)=>{
           console.log('Login Failed', error);
-          this.openSnackBar('Login Failed')
+          this.openSnackBar('Login Failed') 
         }
       )
     // }

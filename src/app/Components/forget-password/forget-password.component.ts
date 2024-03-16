@@ -38,8 +38,9 @@ export class ForgetPasswordComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private _snackbar: MatSnackBar
+    private _snackbar: MatSnackBar,
   ) { };
+
 
   ngOnInit(): void {
     this.forgetPasswordForm = this.formBuilder.group(

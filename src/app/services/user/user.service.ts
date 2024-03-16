@@ -42,14 +42,14 @@ export class UserService {
     return this.httpService.postService('https://localhost:44352/api/User/ForgetPassword?Email='+requestData.email,{},false,header)
   }
 
-  reset(reqData: any, token: any){
+  reset(requestData: any, token: any){
     let header = {
       headers : new HttpHeaders({
         'content-type': 'application/json',
         'Authorization':'Bearer ' + token 
       })
     }
-    return this.httpService.postService('https://localhost:44352/api/User/ResetPassword',reqData,false,header)
+    return this.httpService.postServiceReset('https://localhost:44352/api/User/ResetPassword',requestData,true,header)
   }
 
  

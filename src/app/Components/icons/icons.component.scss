@@ -1,0 +1,14 @@
+.main{
+    padding: 2px 0px ;
+    display: flex;
+    align-items: center;
+}
+
+.grey-img {
+    filter: grayscale(10%);
+}
+
+.redo-icon{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}

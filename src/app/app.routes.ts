@@ -5,6 +5,8 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { AuthGuard  } from './AuthGuard/authgaurd.guard';
+import { CreateNotesComponent } from './Components/create-notes/create-notes.component';
+import { IconsComponent } from './Components/icons/icons.component';
 
 
 export const routes: Routes = [
@@ -23,6 +25,12 @@ export const routes: Routes = [
     },
     {
         path: 'forget-password', component: ForgetPasswordComponent
+    },
+    {
+        path: 'create', component: CreateNotesComponent
+    },
+    {
+        path: 'icon', component: IconsComponent
     },
     {
         path: 'home', component: DashboardComponent,

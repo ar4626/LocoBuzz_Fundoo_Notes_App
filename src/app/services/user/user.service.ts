@@ -32,14 +32,14 @@ export class UserService {
     return this.httpService.postService('https://localhost:44352/api/User/Login',reqData,false,header)
   }
   
-  forgetPassword(reqData: any){
+  forgetPassword(requestData: any){
     let header = {
       headers : new HttpHeaders({
-        'Content-Type': 'application/json',
+        'content-type': 'application/json',
         // 'Authorization': 'token' 
       })
     }
-    return this.httpService.postService('/User/ForgetPassword?Email='+reqData.Email,{},false,header)
+    return this.httpService.postService('https://localhost:44352/api/User/ForgetPassword?Email='+requestData.email,{},false,header)
   }
 
   reset(reqData: any, token: any){

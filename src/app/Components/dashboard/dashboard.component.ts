@@ -4,7 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegisterComponent } from '../register/register.component';
-import { CreateNotesComponent } from '../create-notes/create-notes.component';
+import { GetNotesComponent } from '../get-notes/get-notes.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,9 +13,9 @@ import { CreateNotesComponent } from '../create-notes/create-notes.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSidenavModule,
+    MatSidenavModule, 
     RegisterComponent,
-    CreateNotesComponent,
+    GetNotesComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

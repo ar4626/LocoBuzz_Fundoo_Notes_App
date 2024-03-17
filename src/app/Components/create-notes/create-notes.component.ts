@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { CommonModule } from '@angular/common';
 import { IconsComponent } from '../icons/icons.component';
+import { CommonModule } from '@angular/common';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 
 

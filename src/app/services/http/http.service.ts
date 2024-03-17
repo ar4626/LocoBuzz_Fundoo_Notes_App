@@ -15,7 +15,7 @@ export class HttpService {
   } 
 
   postServiceReset(url:string, reqData:any, token:boolean = true, httpOtions:any={}){
-    this.httpClient.post(this.baseUrl+url,reqData,token && httpOtions);
+    this.httpClient.post(url,reqData,token && httpOtions);
   }
 
   getService(url:string, token:boolean = true, httpOtions:any={}){

@@ -26,21 +26,31 @@ export class UserService {
     let header = {
       headers : new HttpHeaders({
         'content-type': 'application/json',
-        // 'Authorization': 'token' 
+        // 'Authorization':'Bearer ' + token 
       })
     }
     return this.httpService.postService('https://localhost:44352/api/User/Login',reqData,false,header)
   }
   
-  // forgetPassword(reqData: any){
-  //   let header = {
-  //     headers : new HttpHeaders({
-  //       'Content-Type': 'application/json',
-  //       // 'Authorization': 'token' 
-  //     })
-  //   }
-  //   return this.httpService.postService('/User/ForgetPassword?Email='+reqData.Email,{},false,header)
-  // }
+  forgetPassword(requestData: any){
+    let header = {
+      headers : new HttpHeaders({
+        'content-type': 'application/json',
+        // 'Authorization': 'token' 
+      })
+    }
+    return this.httpService.postService('https://localhost:44352/api/User/ForgetPassword?Email='+requestData.email,{},false,header)
+  }
+
+  reset(requestData: any, token: any){
+    let header = {
+      headers : new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization':'Bearer ' + token 
+      })
+    }
+    return this.httpService.postServiceReset('https://localhost:44352/api/User/ResetPassword',requestData,true,header)
+  }
 
  
 }

@@ -4,7 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegisterComponent } from '../register/register.component';
-
+import { GetNotesComponent } from '../get-notes/get-notes.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,12 +13,13 @@ import { RegisterComponent } from '../register/register.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSidenavModule,
-    RegisterComponent
+    MatSidenavModule, 
+    RegisterComponent,
+    GetNotesComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
-})
+}) 
 export class DashboardComponent {
   showFiller = false;
 

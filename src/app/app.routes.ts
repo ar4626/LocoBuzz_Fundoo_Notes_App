@@ -5,11 +5,15 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { AuthGuard  } from './AuthGuard/authgaurd.guard';
+import { CreateNotesComponent } from './Components/create-notes/create-notes.component';
+import { IconsComponent } from './Components/icons/icons.component';
+import { GetNotesComponent } from './Components/get-notes/get-notes.component';
+import { DisplayNotesComponent } from './Components/display-notes/display-notes.component';
 
 
 export const routes: Routes = [
     {
-        path: '', redirectTo: 'login', pathMatch: 'full'
+        path: '', redirectTo: 'display', pathMatch: 'full'
     },
     {
         path: 'login', component: LoginComponent,
@@ -19,18 +23,30 @@ export const routes: Routes = [
         path: 'register', component: RegisterComponent 
     },
     {
-        path: 'reset-password', component: ResetPasswordComponent
+        path: 'reset/:id', component: ResetPasswordComponent
     },
     {
         path: 'forget-password', component: ForgetPasswordComponent
     },
     {
+        path: 'create', component: CreateNotesComponent
+    },
+    {
+        path: 'display', component: DisplayNotesComponent
+    },
+    {
+        path: 'icon', component: IconsComponent
+    },
+    {
         path: 'home', component: DashboardComponent,
-        canActivate:[AuthGuard],
+        // canActivate:[AuthGuard],
         children:[
             {
-                path: 'register', component: DashboardComponent
+                path: '', redirectTo: '/home/notes', pathMatch:'full'
             },
+            {
+                path: 'notes', component: GetNotesComponent
+            }
         ]
     },
 

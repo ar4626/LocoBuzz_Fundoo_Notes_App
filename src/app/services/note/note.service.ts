@@ -54,4 +54,6 @@ export class NoteService {
     return this.httpService.putService('https://localhost:44352/api/Note/Archive?noteId='+noteId, {}, true, header);
   }
 
+  
+
 }

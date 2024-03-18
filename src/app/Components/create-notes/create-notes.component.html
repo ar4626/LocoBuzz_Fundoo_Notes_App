@@ -1,4 +1,4 @@
-<div class="mian" >
+<div class="mian">
     <div *ngIf="display; then takeNotes else inputNotes"></div>
     <ng-template #takeNotes>
         <div class="takenotes">
@@ -28,13 +28,27 @@
                     <input type="text" class="title" placeholder="Title" formControlName="title">
                     <button mat-icon-button class="favorite-icon">
                         <!-- <mat-icon>settings</mat-icon> -->
-                        <img width="32" height="32" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+CiAgPHBhdGggZmlsbD0iIzAwMCIgZD0iTTE3IDR2N2wyIDN2MmgtNnY1bC0xIDEtMS0xdi01SDV2LTJsMi0zVjRjMC0xLjEuOS0yIDItMmg2YzEuMTEgMCAyIC44OSAyIDJ6TTkgNHY3Ljc1TDcuNSAxNGg5TDE1IDExLjc1VjRIOXoiLz4KPC9zdmc+Cg==" alt="pin" />
+                        <img width="32" height="32"
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+CiAgPHBhdGggZmlsbD0iIzAwMCIgZD0iTTE3IDR2N2wyIDN2MmgtNnY1bC0xIDEtMS0xdi01SDV2LTJsMi0zVjRjMC0xLjEuOS0yIDItMmg2YzEuMTEgMCAyIC44OSAyIDJ6TTkgNHY3Ljc1TDcuNSAxNGg5TDE1IDExLjc1VjRIOXoiLz4KPC9zdmc+Cg=="
+                            alt="pin" />
                     </button>
                 </div>
                 <textarea class="desc" placeholder="Take a note..." #textareaElement
                     (input)="adjustTextAreaHeight(textareaElement)" formControlName="desc"></textarea>
                 <div class="notesicon">
-                    <app-icons></app-icons>
+                    <div style="display: flex; ">
+                        <app-icons></app-icons>
+                        <button mat-icon-button class="undo-icon  " aria-label="Example icon-button with heart icon">
+                            <img width="48" height="48"
+                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTQuMSA4SDcuODNsMi41OS0yLjU5TDkgNCA0IDlsNSA1IDEuNDEtMS40MUw3LjgzIDEwaDYuMjdjMi4xNSAwIDMuOSAxLjU3IDMuOSAzLjVTMTYuMjUgMTcgMTQuMSAxN0g3djJoNy4xYzMuMjUgMCA1LjktMi40NyA1LjktNS41UzE3LjM1IDggMTQuMSA4eiIvPgo8L3N2Zz4K"
+                                alt="undo" class="grey-img" />
+                        </button>
+                        <button mat-icon-button class="redo-icon  " aria-label="Example icon-button with heart icon">
+                            <img width="48" height="48"
+                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTQuMSA4SDcuODNsMi41OS0yLjU5TDkgNCA0IDlsNSA1IDEuNDEtMS40MUw3LjgzIDEwaDYuMjdjMi4xNSAwIDMuOSAxLjU3IDMuOSAzLjVTMTYuMjUgMTcgMTQuMSAxN0g3djJoNy4xYzMuMjUgMCA1LjktMi40NyA1LjktNS41UzE3LjM1IDggMTQuMSA4eiIvPgo8L3N2Zz4K"
+                                alt="redo" class="grey-img" />
+                        </button>
+                    </div>
                     <div class="close" (click)="onSubmit()">Close</div>
                 </div>
             </div>

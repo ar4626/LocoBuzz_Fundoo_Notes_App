@@ -1,9 +1,9 @@
 <div class="main">
     <div class="card" *ngFor="let note of noteList">
         <mat-card class="card-container" [class.checked]="isChecked">
-            <mat-card-title mat-input class="title">{{note.title}}</mat-card-title>
+            <mat-card-title mat-input class="title" (click)="editNoteDialog(note)" >{{note.title}}</mat-card-title>
             <mat-card-content>
-                <div aria-multiline="true" role="textbox" class="text">
+                <div aria-multiline="true" role="textbox" class="text" (click)="editNoteDialog(note)" >
                     {{note.description}}
                 </div>
             </mat-card-content>

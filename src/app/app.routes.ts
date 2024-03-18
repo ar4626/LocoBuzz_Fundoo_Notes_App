@@ -9,6 +9,7 @@ import { CreateNotesComponent } from './Components/create-notes/create-notes.com
 import { IconsComponent } from './Components/icons/icons.component';
 import { GetNotesComponent } from './Components/get-notes/get-notes.component';
 import { DisplayNotesComponent } from './Components/display-notes/display-notes.component';
+import { UpdateNotesComponent } from './Components/update-notes/update-notes.component';
 
 
 export const routes: Routes = [
@@ -38,8 +39,11 @@ export const routes: Routes = [
         path: 'icon', component: IconsComponent
     },
     {
+        path: 'update', component: UpdateNotesComponent
+    },
+    {
         path: 'home', component: DashboardComponent,
-        // canActivate:[AuthGuard],
+        canActivate:[AuthGuard],
         children:[
             {
                 path: '', redirectTo: '/home/notes', pathMatch:'full'

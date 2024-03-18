@@ -52,6 +52,21 @@ export class IconsComponent {
     )
   }
 
+  moveToTrash(noteId:any){
+    console.log(noteId);
+    this.notes.isTrash(noteId).subscribe(
+      (response:any)=>{
+        //Handle success response
+        console.log("Note Moved to Trash", response);
+        this.openSnackBar('Trashed')
+      }, 
+      (error: any)=>{
+        console.log('Request Failed', error);
+        this.openSnackBar('Request Failed') 
+      }
+    )
+  }
+
   openSnackBar(snackMessage: string) {
     // console.log("Open Snack Bar")
     this._snackBar.openFromComponent(SnackBarComponent, {

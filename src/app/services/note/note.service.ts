@@ -54,6 +54,14 @@ export class NoteService {
     return this.httpService.putService('https://localhost:44352/api/Note/Archive?noteId='+noteId, {}, true, header);
   }
 
-  
+  isTrash(noteId: any) {
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.putService('https://localhost:44352/api/Note/Trash?noteId='+noteId, {}, true, header);
+  }
 
 }

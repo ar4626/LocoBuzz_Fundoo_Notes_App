@@ -10,10 +10,12 @@
 
 .card{
     padding: 9px;
+    display: table-row;
 }
 
 .card-container {
-    background-color: wheat;
+    // background-color: wheat;
+    border: .2px solid lightgray;
     border-radius: 8px;
     position: relative;
 }

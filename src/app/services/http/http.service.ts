@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HttpService {
-  baseUrl = 'http://localhost:44352/api';
 
   constructor(private httpClient : HttpClient) { }
 
@@ -14,16 +13,16 @@ export class HttpService {
     return this.httpClient.post(url,reqData,token && httpOtions);
   } 
 
-  postServiceReset(url:string, reqData:any, token:boolean = true, httpOtions:any={}){
-    this.httpClient.post(url,reqData,token && httpOtions);
+  postServiceReset(url: string, reqData: any, token: boolean = true, httpOptions: any = {}) {
+    return this.httpClient.post(url, reqData, token && httpOptions);
   }
 
   getService(url:string, token:boolean = true, httpOtions:any={}){
-    return this.httpClient.get(this.baseUrl+url,token && httpOtions);
+    return this.httpClient.get(url,token && httpOtions);
   }
 
   putService(url:string, reqData:any, token:boolean = true, httpOtions:any={}){
-    return this.httpClient.put(this.baseUrl+url,reqData,token && httpOtions);
+    return this.httpClient.put(url,reqData,token && httpOtions);
   }
 
 }

@@ -22,20 +22,20 @@
         </div>
     </ng-template>
     <ng-template #inputNotes>
-        <form >
+        <form [formGroup]="notesForm">
             <div class="createnotes">
                 <div class="titlebar">
-                    <input type="text" class="title" placeholder="Title">
+                    <input type="text" class="title" placeholder="Title" formControlName="title">
                     <button mat-icon-button class="favorite-icon">
                         <!-- <mat-icon>settings</mat-icon> -->
                         <img width="32" height="32" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+CiAgPHBhdGggZmlsbD0iIzAwMCIgZD0iTTE3IDR2N2wyIDN2MmgtNnY1bC0xIDEtMS0xdi01SDV2LTJsMi0zVjRjMC0xLjEuOS0yIDItMmg2YzEuMTEgMCAyIC44OSAyIDJ6TTkgNHY3Ljc1TDcuNSAxNGg5TDE1IDExLjc1VjRIOXoiLz4KPC9zdmc+Cg==" alt="pin" />
                     </button>
                 </div>
                 <textarea class="desc" placeholder="Take a note..." #textareaElement
-                    (input)="adjustTextAreaHeight(textareaElement)"></textarea>
+                    (input)="adjustTextAreaHeight(textareaElement)" formControlName="desc"></textarea>
                 <div class="notesicon">
                     <app-icons></app-icons>
-                    <div class="close" (click)="display=!display">Close</div>
+                    <div class="close" (click)="onSubmit()">Close</div>
                 </div>
             </div>
         </form>

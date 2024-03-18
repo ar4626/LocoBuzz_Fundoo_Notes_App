@@ -10,14 +10,15 @@ import {
   MatSnackBarRef,
 } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-icons',
   standalone: true,
   imports: [
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
   ],
   templateUrl: './icons.component.html',
   styleUrl: './icons.component.scss'

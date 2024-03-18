@@ -15,7 +15,7 @@ import {
   MatSnackBarRef,
 } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
-import { Router } from '@angular/router'; // Assuming Router is imported from Angular Router, not Express
+import { Router, RouterModule } from '@angular/router'; // Assuming Router is imported from Angular Router, not Express
 
 @Component({
   selector: 'app-login',
@@ -28,7 +28,7 @@ import { Router } from '@angular/router'; // Assuming Router is imported from An
     MatSelectModule, 
     ReactiveFormsModule,
     CommonModule,
-    
+    RouterModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

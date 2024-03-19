@@ -77,6 +77,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', response.data);
           this.openSnackBar('Login successful')
           this.route.navigateByUrl('/home')
+          
+          //set timmer
+          setTimeout(() => {
+            this.deleteToken();
+          }, 10 * 60 * 1000); // 10 minutes in milliseconds
         }, 
         (error)=>{
           console.log('Login Failed', error);
@@ -92,6 +97,11 @@ export class LoginComponent implements OnInit {
       data: snackMessage,
       duration: this.durationInSeconds * 500,
     });
+  }
+
+  // Function to delete token from local storage
+  deleteToken(): void {
+    localStorage.removeItem('token');
   }
 
 }

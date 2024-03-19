@@ -11,6 +11,7 @@ import {
 } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-icons',
@@ -19,13 +20,27 @@ import {MatMenuModule} from '@angular/material/menu';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    CommonModule
   ],
   templateUrl: './icons.component.html',
   styleUrl: './icons.component.scss'
 })
 export class IconsComponent {
   public data : any;
+  colorBtn:boolean = false;
   @Input() id:any;
+  colorOptions: any = [
+    { value: '#faafa8', label: 'Coral' }, 
+    { value: '#f39f76', label: 'Peach' }, 
+    { value: '#fff8b8', label: 'Sand' }, 
+    { value: '#e2f6d3', label: 'Mint' },
+    { value: '#b4ddd3', label: 'Sage' }, 
+    { value: '#d4e4ed', label: 'Fog' }, 
+    { value: '#aeccdc', label: 'Storm' }, 
+    { value: '#d3bfdb', label: 'Dusk' }, 
+    { value: '#f6e2dd', label: 'Blossom' },
+    { value: '#e9e3d4', label: 'Clay' }, 
+  ];
 
   constructor(
     private notes : NoteService,
@@ -76,5 +91,7 @@ export class IconsComponent {
     });
   }
 
+
+  
 
 }

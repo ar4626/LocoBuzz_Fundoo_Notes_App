@@ -5,6 +5,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegisterComponent } from '../register/register.component';
 import { GetNotesComponent } from '../get-notes/get-notes.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +18,9 @@ import { GetNotesComponent } from '../get-notes/get-notes.component';
     MatSidenavModule, 
     RegisterComponent,
     GetNotesComponent,
+    RouterOutlet,
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

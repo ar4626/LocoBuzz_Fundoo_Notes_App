@@ -10,6 +10,8 @@ import { IconsComponent } from './Components/icons/icons.component';
 import { GetNotesComponent } from './Components/get-notes/get-notes.component';
 import { DisplayNotesComponent } from './Components/display-notes/display-notes.component';
 import { UpdateNotesComponent } from './Components/update-notes/update-notes.component';
+import { ArchiveComponent } from './Components/archive/archive.component';
+import { TrashComponent } from './Components/trash/trash.component';
 
 
 export const routes: Routes = [
@@ -50,7 +52,14 @@ export const routes: Routes = [
             },
             {
                 path: 'notes', component: GetNotesComponent
-            }
+            },
+            {
+                path: 'archive', component: ArchiveComponent
+            },
+            {
+                path: 'trash', component: TrashComponent
+            },
+
         ]
     },
 

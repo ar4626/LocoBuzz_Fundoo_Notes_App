@@ -30,6 +30,7 @@ import { UpdateNotesComponent } from '../update-notes/update-notes.component';
 export class DisplayNotesComponent {
   isChecked: boolean = false;
   @Input() noteList:any;
+  
 
   constructor(
     private dialog : MatDialog,

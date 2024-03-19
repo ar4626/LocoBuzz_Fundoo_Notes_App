@@ -1,8 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { IconsComponent } from '../icons/icons.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CommonModule } from '@angular/common';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
+import { UpdateNotesComponent } from '../update-notes/update-notes.component';
+
 
 
 @Component({
@@ -13,14 +22,35 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     IconsComponent,
     MatButtonModule,
     MatCheckboxModule,
+    CommonModule,
   ],
   templateUrl: './display-notes.component.html',
   styleUrl: './display-notes.component.scss'
 })
 export class DisplayNotesComponent {
   isChecked: boolean = false;
+  @Input() noteList:any;
+  
 
+  constructor(
+    private dialog : MatDialog,
+  ){}
+  
   toggleChecked(): void {
     this.isChecked = !this.isChecked;
   }
+
+  editNoteDialog(notes: any){
+    const dialogbox = this.dialog.open(UpdateNotesComponent,{
+      data:notes
+    })
+    dialogbox.afterClosed().subscribe(
+      (result)=>{
+        console.log(result);
+      }
+    )
+  }
+
+
+  
 }

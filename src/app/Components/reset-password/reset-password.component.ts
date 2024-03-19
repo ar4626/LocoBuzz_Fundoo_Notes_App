@@ -54,19 +54,19 @@ export class ResetPasswordComponent {
     };
     console.log(requestData);
     console.log(this.token);
-    // this.userService.reset(requestData, this.token).subscribe(
-    //   (response: any) => {
-    //     //handle success response
-    //     console.log("Reset successful", response.data);
-    //     // localStorage.setItem('token', response.data);
-    //     this.openSnackBar('Reset successful');
-    //     this.route.navigateByUrl('/login');
-    //   },
-    //   (error: any) => {
-    //     console.error("Reset failed", error);
-    //     this.openSnackBar('Reset failed. Please try again.');
-    //   }
-    // );
+    this.userService.reset(requestData, this.token).subscribe(
+      (response: any) => {
+        //handle success response
+        console.log("Reset successful", response.data);
+        // localStorage.setItem('token', response.data);
+        this.openSnackBar('Reset successful');
+        this.route.navigateByUrl('/login');
+      },
+      (error: any) => {
+        console.error("Reset failed", error);
+        this.openSnackBar('Reset failed. Please try again.');
+      }
+    );
   }
 
 

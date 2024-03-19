@@ -15,7 +15,7 @@ import {
   MatSnackBarRef,
 } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
-import { Router } from '@angular/router'; // Assuming Router is imported from Angular Router, not Express
+import { Router, RouterModule } from '@angular/router'; // Assuming Router is imported from Angular Router, not Express
 
 @Component({
   selector: 'app-login',
@@ -25,10 +25,10 @@ import { Router } from '@angular/router'; // Assuming Router is imported from An
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatSelectModule,
+    MatSelectModule, 
     ReactiveFormsModule,
     CommonModule,
-    
+    RouterModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -77,6 +77,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', response.data);
           this.openSnackBar('Login successful')
           this.route.navigateByUrl('/home')
+          
+          //set timmer
+          setTimeout(() => {
+            this.deleteToken();
+          }, 10 * 60 * 1000); // 10 minutes in milliseconds
         }, 
         (error)=>{
           console.log('Login Failed', error);
@@ -92,6 +97,11 @@ export class LoginComponent implements OnInit {
       data: snackMessage,
       duration: this.durationInSeconds * 500,
     });
+  }
+
+  // Function to delete token from local storage
+  deleteToken(): void {
+    localStorage.removeItem('token');
   }
 
 }

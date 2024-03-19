@@ -31,15 +31,15 @@
             
             <div class="forget-btn">
                 <mat-checkbox color="primary" (change)="toggleVisibility()">Show password</mat-checkbox> 
-                <button mat-button color="primary">Forget Password?</button>
+                <button mat-button color="primary" [routerLink]="['/forget-password']">Forget Password?</button>
             </div>
             
             <div class="submit-btn">
-                <button mat-button color="primary">Create account</button>
+                <button mat-button color="primary" [routerLink]="['/register']">Create account</button>
                 <button mat-raised-button color="primary" (click)="loginUser()">Sign in</button>
             </div>
 
-        </form>
+        </form>   
     </div>
     <div class="footer">
         <div class="language">

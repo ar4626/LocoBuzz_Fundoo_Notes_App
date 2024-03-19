@@ -1,23 +1,19 @@
-import { Component } from '@angular/core';
-import { CreateNotesComponent } from '../create-notes/create-notes.component';
+import { Component, Input } from '@angular/core';
 import { DisplayNotesComponent } from '../display-notes/display-notes.component';
 import { NoteService } from '../../services/note/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
-
 @Component({
-  selector: 'app-get-notes',
+  selector: 'app-archive',
   standalone: true,
   imports: [
-    CreateNotesComponent,
-    DisplayNotesComponent
+    DisplayNotesComponent,
   ],
-  templateUrl: './get-notes.component.html',
-  styleUrl: './get-notes.component.scss'
+  templateUrl: './archive.component.html',
+  styleUrl: './archive.component.scss'
 })
-export class GetNotesComponent {
-
+export class ArchiveComponent {
   noteArray: any; 
 
   constructor(
@@ -38,7 +34,7 @@ export class GetNotesComponent {
         console.log("Note Fetched successfuliy");
         
         // Filter out notes with trash property set to true
-        this.noteArray = this.noteArray.filter((note: any) => note.isTrash==false && note.isArchive==false);
+        this.noteArray = this.noteArray.filter((note: any) => note.isArchive==true);
         console.log("Filtered Note Array:");
         console.log(this.noteArray);
 
@@ -61,5 +57,6 @@ export class GetNotesComponent {
     });
   }
 
+
+
 }
- 

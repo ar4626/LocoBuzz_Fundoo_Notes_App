@@ -1,14 +1,14 @@
 <div class="main">
-    <div class="card">
-        <mat-card class="card-container" [class.checked]="isChecked">
-            <mat-card-title mat-input class="title">Today Lecture</mat-card-title>
+    <div class="card" *ngFor="let note of noteList">
+        <mat-card class="card-container" [class.checked]="isChecked" [style.background-color]=note.color>
+            <mat-card-title mat-input class="title" (click)="editNoteDialog(note)" >{{note.title}}</mat-card-title>
             <mat-card-content>
-                <div aria-multiline="true" role="textbox" class="text">
-                    Web API IntroductionWeb API IntroductionWeb API Introduction
+                <div aria-multiline="true" role="textbox" class="text" (click)="editNoteDialog(note)" >
+                    {{note.description}}
                 </div>
             </mat-card-content>
             <div class="icon-section">
-                <app-icons class="icon"></app-icons>
+                <app-icons class="icon" [id]="note.noteId"></app-icons>
             </div>
 
             <button mat-icon-button class="pin-icon">

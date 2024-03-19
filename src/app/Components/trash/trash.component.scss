@@ -1,3 +1,20 @@
+.head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.notice{
+    font-size: larger;
+}
+
+.emptyTrash{
+    margin-left: 20px;
+    box-sizing: border-box;
+}
+
 .main {
     display: flex;
     // justify-content: center;

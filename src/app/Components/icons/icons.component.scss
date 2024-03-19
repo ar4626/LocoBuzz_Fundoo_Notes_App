@@ -1,14 +1,71 @@
-.main{
-    padding: 2px 0px ;
+.main {
+    padding: 2px 0px;
     display: flex;
+    justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .grey-img {
     filter: grayscale(10%);
 }
 
-.redo-icon{
+.redo-icon {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
+
+// .................................................
+
+
+.color-menu{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid .2px lightgrey;
+    border-radius: 8px;
+    padding: 8px 8px;
+    bottom: -40px;
+    background-color: white;
+    box-shadow: 2px 2px 2px lightgrey;
+    box-sizing: border-box;
+
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin:  3px;
+    box-sizing: border-box;
+    position: relative; 
+}
+
+.option:hover {
+    border: solid 1.8px black;
+}
+
+.color-label {
+    position: absolute;
+    bottom: -25px;
+    background-color: rgb(59, 59, 59);
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    display: none;
+}
+
+.option:hover .color-label {
+    display: block;
+}
+
+
+
+

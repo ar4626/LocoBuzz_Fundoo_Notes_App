@@ -80,6 +80,20 @@ export class IconsComponent {
         console.log('Request Failed', error);
         this.openSnackBar('Request Failed') 
       }
+      )
+  }
+
+  addColor(noteId:any, color:any){
+    console.log(noteId, color);
+    this.notes.addColor(noteId, color).subscribe(
+      (response:any)=>{
+        //Handle success response
+        console.log("Color Added", response);
+        this.openSnackBar('Color Added')
+      }, 
+      (error: any)=>{
+        console.log('Request Failed', error);
+      }
     )
   }
 

@@ -41,6 +41,7 @@ export class UpdateNotesComponent {
   title:any;
   description: any;
   id:any;
+  color: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data : any,
@@ -51,7 +52,8 @@ export class UpdateNotesComponent {
   ){
     this.title = data.title,
     this.description = data.description,
-    this.id = data.noteId
+    this.id = data.noteId,
+    this.color = data.color
   }
 
   ngOnInit(): void {

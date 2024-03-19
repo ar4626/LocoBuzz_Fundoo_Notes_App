@@ -64,4 +64,36 @@ export class NoteService {
     return this.httpService.putService('https://localhost:44352/api/Note/Trash?noteId='+noteId, {}, true, header);
   }
 
+  addColor(noteId: any, color: string) {
+    // console.log('https://localhost:44352/api/Note/Add-Color?noteId=' + noteId + '&color=' + color);
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    const encodedColor = encodeURIComponent(color);
+    return this.httpService.putService(`https://localhost:44352/api/Note/Add-Color?noteId=${noteId}&color=${encodedColor}`, {}, true, header);
+  }
+
+  deleteNote(noteId: any){
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.deleteService('https://localhost:44352/api/Note/DeleteNoteId?noteId='+noteId,true, header);
+  }
+
+  emptyTrash(){
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.deleteService('https://localhost:44352/api/Note/EmptyTrash',true, header);
+  }
+
 }

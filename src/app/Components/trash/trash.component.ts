@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { DisplayNotesComponent } from '../display-notes/display-notes.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
@@ -70,6 +70,7 @@ export class TrashComponent {
       (response: any) => {
         //Handle success response
         console.log("Note Moved to Notes", response);
+        this.display();
         this.openSnackBar('Untrashed')
       },
       (error: any) => {
@@ -84,6 +85,7 @@ export class TrashComponent {
       (response: any) => {
         //Handle success response
         console.log("Note Deleted", response);
+        this.display();
         this.openSnackBar('Deleted')
       },
       (error: any) => {
@@ -98,6 +100,7 @@ export class TrashComponent {
       (response: any) => {
         //Handle success response
         console.log("Trash Cleared", response);
+        this.display();
         this.openSnackBar('Trash Cleared');
       },
       (error: any) => {

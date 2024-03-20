@@ -5,7 +5,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegisterComponent } from '../register/register.component';
 import { GetNotesComponent } from '../get-notes/get-notes.component';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -20,15 +20,29 @@ import { CommonModule } from '@angular/common';
     GetNotesComponent,
     RouterOutlet,
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 }) 
 export class DashboardComponent {
   showFiller = false;
+  notes: boolean = true;
+  trash: boolean = false;
+  archive: boolean = false;
+
+  constructor(
+    private route : Router
+  ){
+
+  }
 
   switchbg() : void{
     this.showFiller=!this.showFiller;
+  }
+
+  deleteToken(): void {
+    localStorage.removeItem('token');
+    this.route.navigateByUrl('/login');
   }
 }

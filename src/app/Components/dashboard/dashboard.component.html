@@ -47,64 +47,19 @@
         <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4D4D4D/circled-menu.png"
             alt="circled-menu" />
     </button>
-    <button mat-icon-button class=" favorite-icon" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button (click)="deleteToken()" class=" favorite-icon" aria-label="Example icon-button with heart icon">
         <!-- <div style="width: 28px; height: 28px; background-color: rgb(176, 141, 95); border-radius: 50%;"></div> -->
         <mat-icon style="font-size: 26px;">person</mat-icon>
     </button>
 </mat-toolbar>
 
-<!-- <div class="main"> 
-    <div class="nav-bar">
-        <div class="menu-box">
-            <div class="menu-icon">
-                <img src="src\assets\menu.png"> x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30"
-                style="fill:#4D4D4D;">
-                <path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"></path>
-                </svg>" alt="">
-            </div>
-            <div class="title">
-                <h1>FUNDOO NOTES</h1>
-            </div>
-        </div>
-        <div class="search-box">
-
-        </div>
-        <div class="icon-box">
-
-        </div>
-    </div>
-    <div>
-        <div class="slider">
-
-
-        </div> 
-        <mat-drawer-container class="example-container" autosize>
-            <mat-drawer #drawer class="example-sidenav" mode="side">
-              <p>Auto-resizing sidenav</p>
-              @if (showFiller) {
-                <p>Lorem, ipsum dolor sit amet consectetur.</p>
-              }
-              <button (click)="showFiller = !showFiller" mat-raised-button>
-                Toggle extra text
-              </button>
-            </mat-drawer>
-          
-            <div class="example-sidenav-content">
-              <button type="button" mat-button (click)="drawer.toggle()">
-                Toggle sidenav
-              </button>
-            </div>
-          
-          </mat-drawer-container>
-        <div class="dashboard">
-
-        </div>
-    </div>
-</div> -->
 <main>
     <div class="menu" (mouseover)="drawer.toggle();" (mouseout)="drawer.toggle();">
-        <div class="note-option" [style.background-color]="showFiller ? '#feefc3' : '#ffffff'">
-            <button mat-icon-button class="side-icon favorite-icon" aria-label="Icon for Notes"
+        <div class="note-option" [style.background-color]="showFiller&&notes ? '#feefc3' : '#ffffff'">
+            <button mat-icon-button class="side-icon favorite-icon" 
+            [style.background-color]="notes ? '#feefc3' : '#ffffff'" 
+                (click)="trash=false; archive=false; notes=true"  
+            aria-label="Icon for Notes"
                 [routerLink]="['/home/notes']">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
@@ -147,8 +102,11 @@
                 </svg>
             </button>
         </div>
-        <div class="note-option">
-            <button mat-icon-button style="background-color: white;" class="side-icon favorite-icon"
+        <div class="note-option" [style.background-color]="showFiller&&archive ? '#feefc3' : '#ffffff'">
+            <button mat-icon-button 
+            [style.background-color]="archive ? '#feefc3' : '#ffffff'" 
+            (click)="trash=false; archive=true; notes=false"  
+            class="side-icon favorite-icon"
                 aria-label="Icon for Archive" [routerLink]="['/home/archive']">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
@@ -157,20 +115,24 @@
                 </svg>
             </button>
         </div>
-        <div class="note-option">
-            <button mat-icon-button style="background-color: white;" class="side-icon favorite-icon"
+        <div class="note-option" [style.background-color]="showFiller&&trash ? '#feefc3' : '#ffffff'">
+            <button mat-icon-button  class="side-icon favorite-icon"
+            [style.background-color]="trash ? '#feefc3' : '#ffffff'" 
+                (click)="trash=true; archive=false; notes=false"  
                 aria-label="Icon for trash" [routerLink]="['/home/trash']">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z"></path>
                     <path d="M9 8h2v9H9zm4 0h2v9h-2z"></path>
                 </svg>
-            </button>
+            </button> 
         </div>
     </div>
-    <mat-drawer-container class="container" autosize>
+    <mat-drawer-container class="container" autosize >
 
-        <mat-drawer #drawer class="sidenav" mode="side">
-            <div class="note-option-title" [style.background-color]="showFiller ? '#feefc3' : '#ffffff'"
+        <mat-drawer #drawer class="sidenav" mode="side" >
+            <div class="note-option-title" 
+            [style.background-color]="notes ? '#feefc3' : '#ffffff'" 
+                (click)="trash=false; archive=false; notes=true"  
                 [routerLink]="['/home/notes']">
                 <p>
                     Notes
@@ -195,12 +157,19 @@
                     Edit Labels
                 </p>
             </div>
-            <div class="note-option-title" [routerLink]="['/home/archive']">
+            <div class="note-option-title"
+                [style.background-color]="archive ? '#feefc3' : '#ffffff'" 
+                (click)="trash=false; archive=true; notes=false"  
+                [routerLink]="['/home/archive']">
                 <p>
                     Archive
                 </p>
             </div>
-            <div class="note-option-title" [routerLink]="['/home/trash']">
+            <div class="note-option-title" 
+                [style.background-color]="trash ? '#feefc3' : '#ffffff'" 
+                (click)="trash=true; archive=false; notes=false;" 
+                [routerLink]="['/home/trash']"
+            >
                 <p>
                     Trash
                 </p>

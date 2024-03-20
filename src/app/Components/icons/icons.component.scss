@@ -28,9 +28,10 @@
     padding: 8px 8px;
     bottom: -40px;
     background-color: white;
-    box-shadow: 2px 2px 2px lightgrey;
+    // box-shadow: 2px 2px 2px lightgrey;
+    box-shadow: 2px 2px 2px lightgrey, 0 4px 8px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
-
+    
 }
 
 .option {
@@ -67,5 +68,7 @@
 }
 
 
-
+.color-menu[_ngcontent-ng-c2124311188]{
+    z-index: 2;
+}
 

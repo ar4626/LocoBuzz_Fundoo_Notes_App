@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { IconsComponent } from '../icons/icons.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,6 +28,7 @@ import { UpdateNotesComponent } from '../update-notes/update-notes.component';
   styleUrl: './display-notes.component.scss'
 })
 export class DisplayNotesComponent {
+  @Output() refreshUpdateNotes = new EventEmitter<string>();
   isChecked: boolean = false;
   @Input() noteList:any;
   
@@ -47,6 +48,7 @@ export class DisplayNotesComponent {
     dialogbox.afterClosed().subscribe(
       (result)=>{
         console.log(result);
+        this.refreshUpdateNotes.emit(result);
       }
     )
   }

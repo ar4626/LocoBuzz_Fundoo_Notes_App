@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { IconsComponent } from '../icons/icons.component';
@@ -24,16 +24,23 @@ import { SnackBarComponent } from '../snack-bar/snack-bar.component';
     CommonModule,
     IconsComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './create-notes.component.html',
   styleUrl: './create-notes.component.scss'
 })
-export class CreateNotesComponent {
+export class CreateNotesComponent{
+  @Output() refreshCreatedNotes = new EventEmitter<string>();
   noteText: string = '';
   submitted: boolean = false;
   display: boolean = true;
-
+  
+  // ngOnInit(): void {
+  //   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //   //Add 'implements OnInit' to the class.
+    
+  // }
   adjustTextAreaHeight(textarea: HTMLTextAreaElement) {
     textarea.style.height = 'auto'; // Reset the height to auto
     textarea.style.height = (textarea.scrollHeight + 2) + 'px'; // Set the height based on the content
@@ -78,8 +85,8 @@ export class CreateNotesComponent {
         (response:any)=>{
           //Handle success response
           console.log("Note Created successfuliy", response.data);
-          this.openSnackBar('Note created.')
-          // this.displayNotesComponet.display();
+          this.refreshCreatedNotes.emit(response);
+          this.openSnackBar('Note created.');
         }, 
         (error: any)=>{
           console.log('Request Failed', error);

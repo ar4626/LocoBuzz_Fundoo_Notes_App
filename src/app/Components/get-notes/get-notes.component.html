@@ -1,4 +1,4 @@
 <div class="main">
-    <app-create-notes></app-create-notes>
-    <app-display-notes [noteList] = "noteArray" ></app-display-notes>
+    <app-create-notes (refreshCreatedNotes)="displayAddedNotes($event)"></app-create-notes>
+    <app-display-notes  [noteList] = "noteArray" (refreshUpdateNotes)="displayUpatedNotes($event)" ></app-display-notes>
 </div>

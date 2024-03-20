@@ -61,5 +61,17 @@ export class GetNotesComponent {
     });
   }
 
+  displayAddedNotes($event: any) {
+    console.log('Create to get all Notes' + $event)
+    this.display();
+  }
+
+  displayUpatedNotes($event: any) {
+    console.log('Create to get all Notes' + $event)
+    this.display();
+  }
+
+  
+
 }
  

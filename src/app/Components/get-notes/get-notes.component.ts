@@ -18,7 +18,7 @@ import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 })
 export class GetNotesComponent {
 
-  noteArray: any; 
+  noteArray: any;  
 
   constructor(
     private notes: NoteService,
@@ -44,7 +44,7 @@ export class GetNotesComponent {
 
         
         this.noteArray.reverse();
-        this.openSnackBar('Note Fetched.')
+        // this.openSnackBar('Note Fetched.')
       }, 
       (error: any)=>{
         console.log('Request Failed', error);
@@ -70,8 +70,11 @@ export class GetNotesComponent {
     console.log('Create to get all Notes' + $event)
     this.display();
   }
-
   
+  refresh($event: any){
+    console.log('Create to get Colored Notes' + $event)
+    this.display();
+  }
 
 }
  

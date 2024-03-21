@@ -29,6 +29,7 @@ import { UpdateNotesComponent } from '../update-notes/update-notes.component';
 })
 export class DisplayNotesComponent {
   @Output() refreshUpdateNotes = new EventEmitter<string>();
+  @Output() refreshNotes = new EventEmitter<string>();
   isChecked: boolean = false;
   @Input() noteList:any;
   

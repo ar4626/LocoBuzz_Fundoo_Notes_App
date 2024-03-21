@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { NoteService } from '../../services/note/note.service';
@@ -26,6 +26,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './icons.component.scss'
 })
 export class IconsComponent {
+  @Output() refreshNote = new EventEmitter<string>();
   public data : any;
   colorBtn:boolean = false;
   @Input() id:any;
@@ -59,13 +60,14 @@ export class IconsComponent {
       (response:any)=>{
         //Handle success response
         console.log("Note Moved to Archive", response);
+        this.refreshNote.emit(response)
         this.openSnackBar('Archived')
       }, 
       (error: any)=>{
         console.log('Request Failed', error);
         this.openSnackBar('Request Failed') 
       }
-    )
+      )
   }
 
   moveToTrash(noteId:any){
@@ -74,6 +76,7 @@ export class IconsComponent {
       (response:any)=>{
         //Handle success response
         console.log("Note Moved to Trash", response);
+        this.refreshNote.emit(response)
         this.openSnackBar('Trashed')
       }, 
       (error: any)=>{
@@ -89,6 +92,7 @@ export class IconsComponent {
       (response:any)=>{
         //Handle success response
         console.log("Color Added", response);
+        this.refreshNote.emit(response)
         this.openSnackBar('Color Added')
       }, 
       (error: any)=>{

@@ -1,0 +1,90 @@
+<div class="main">
+    <div class="view">
+        <div class="heading">
+            <div class="menu">
+                <img width="30" height="30" src="https://img.icons8.com/sf-black/64/FFFFFF/menu.png" alt="menu" />
+            </div>
+            <div class="head">
+                <div class="title" id="chat">
+                    CHATS
+                    <div class="dash"></div>
+                </div>
+                <div class="title">
+                    CALLS
+                </div>
+            </div>
+            <div class="menu">
+                <img width="30" height="30" src="https://img.icons8.com/sf-regular/48/FFFFFF/search.png" alt="search" />
+            </div>
+        </div>
+        <div class="detail">
+            <div *ngFor="let item of items" class="card">
+                <div class="logo"></div>
+                <div class="data">
+                    <div class="name">{{ item.name }}</div>
+                    <div class="desc">{{ item.description }}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="view">
+        <div class="heading" style="padding: 10px 0px;">
+            <div class="back">
+                <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/FFFFFF/left.png" alt="left" />
+            </div>
+            <div class="head-data">
+                <div class="profile"></div>
+                <div class="member">
+                    <div class="head-name">Your Name</div>
+                    <div style="color: white; font-size: small;">3 members</div>
+                </div>
+            </div>
+            <div class="option">
+
+                <img width="30" height="30" src="https://img.icons8.com/material-rounded/30/FFFFFF/menu-2.png"
+                    alt="menu-2" />
+            </div>
+        </div>
+        <div class="detail" style="background-color: #192028;">
+            <div class="chatt-re">
+                <div class="profile"></div>
+                <div class="msg-re"></div>
+            </div>
+            <div class="chatt-se">
+                <div class="msg-se"></div>
+            </div>
+            <div class="chatt-re">
+                <div class="profile"></div>
+                <div class="msg-re"></div>
+            </div>
+            <div class="chatt-re">
+                <div class="msg-re" style="margin-left: 60px; width: 60%;"></div>
+            </div>
+            <div class="chatt-se">
+                <div class="msg-se"></div>
+            </div>
+            <div class="chatt-se">
+                <div class="msg-se" style="width: 30%; margin-top: 10px; height: 40px;"></div>
+            </div>
+            <div class="chatt-re">
+                <div class="profile"></div>
+                <div class="msg-re"></div>
+            </div>
+        </div>
+        <div class="heading" style="height: 60px;">
+            <div class="head-data">
+                <div class="profile"></div>
+                <div class="msg-re"
+                    style=" width: 100%; background-color: #303b47; display: flex; align-items: center; color: #637891; ">
+                    &nbsp;
+                    Message
+                </div>
+            </div>
+            <div class="back" style="padding: 10px;">
+                <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/FFFFFF/left.png" alt="left" />
+            </div>
+        </div>
+    </div>
+
+</div>

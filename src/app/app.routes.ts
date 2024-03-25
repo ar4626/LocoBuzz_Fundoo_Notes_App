@@ -12,6 +12,7 @@ import { DisplayNotesComponent } from './Components/display-notes/display-notes.
 import { UpdateNotesComponent } from './Components/update-notes/update-notes.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
+import { FinalReviewComponent } from './Components/final-review/final-review.component';
 
 
 export const routes: Routes = [
@@ -42,6 +43,9 @@ export const routes: Routes = [
     },
     {
         path: 'update', component: UpdateNotesComponent
+    },
+    {
+        path: 'review', component: FinalReviewComponent
     },
     {
         path: 'home', component: DashboardComponent,
